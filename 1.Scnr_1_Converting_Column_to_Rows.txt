@@ -1,0 +1,26 @@
+
+Step1:Import Source and target definition 
+step2:Create a mapping and drag and drop the source and target definitions into mapping designer.
+step3:Take the Filter transformation drag the source fields into expression 
+in filter condition Expression is Deptno=$$m_deptno
+
+create the parameter in mapping level  $$m_deptno ---type (parameter) and data type is string
+in parameter file you need to mention $$m_deptno=20
+step4: use aggregator transformation 
+drag the input fields from expression transformation.
+create 2 output port in agg transformation.
+agg_out_1--data type --varchar --expression (Max(o_city1))
+agg_out_2 --data type --varchar --expression (Max(o_city2))
+apply grouping on agg_out port both 1&2 ports include distance port.
+
+step5:go to workflow mananger create a new workflow and create new task or session and double click configure the source and target connections
+using parameter file.
+step6:create a parameter file 
+---->[Foldername.WF:workflowname.ST:Sessionname]
+   $DBConnection_src=sourcedbname
+   $DBConnection_tgt=targetdbname
+configure the source and target connections 
+Step7:Provide the parameter file name and filepath in workflow level
+
+
+','
